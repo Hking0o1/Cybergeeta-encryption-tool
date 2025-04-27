@@ -1,14 +1,42 @@
-# Secure encryption tool
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+# SecureVault - Advanced Encryption Tool
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/hking0o1s-projects/v0-secure-encryption-tool)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/7mPUViMn4hq)
+SecureVault is a comprehensive web-based encryption platform designed to provide military-grade security for sensitive data. The application offers symmetric and asymmetric encryption, file encryption, and secure hashing capabilities, all wrapped in an intuitive user interface.
 
-## Overview
+## Features
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+- **🔒 Symmetric Encryption**: AES-256 encryption with password-based key derivation
+- **🔑 Asymmetric Encryption**: RSA encryption for public/private key cryptography
+- **📁 File Encryption**: Secure file encryption with password protection
+- **🔍 Secure Hashing**: SHA-256 and SHA-512 hashing capabilities
+- **🛡️ Personal Vault**: Storage of encrypted files and text for registered users
+- **📱 Responsive Design**: Fully responsive interface that works on all devices
+- **🌙 Dark Mode**: Toggle between light and dark themes
+
+## Tech Stack
+
+- **Frontend**: Next.js 14, React, Tailwind CSS, shadcn/ui
+- **Backend**: Next.js API Routes, Prisma ORM
+- **Database**: SQLite (development)
+- **Authentication**: NextAuth.js
+- **Encryption**: Web Crypto API
+- **Animations**: GSAP
+
+## Getting Started
+
+### Prerequisites
+
+- "next": "15.2.4", or higher
+- npm or yarn
+- Postgresql database (for production)
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/securevault.git
+   cd securevault
+
 
 ## Deployment
 
@@ -16,15 +44,3 @@ Your project is live at:
 
 **[https://vercel.com/hking0o1s-projects/v0-secure-encryption-tool](https://vercel.com/hking0o1s-projects/v0-secure-encryption-tool)**
 
-## Build your app
-
-Continue building your app on:
-
-**[https://v0.dev/chat/projects/7mPUViMn4hq](https://v0.dev/chat/projects/7mPUViMn4hq)**
-
-## How It Works
-
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
