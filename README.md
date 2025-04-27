@@ -42,5 +42,5 @@ SecureVault is a comprehensive web-based encryption platform designed to provide
 
 Your project is live at:
 
-**[[https://vercel.com/hking0o1s-projects/v0-secure-encryption-tool](https://v0-secure-encryption-tool.vercel.app/)](https://vercel.com/hking0o1s-projects/v0-secure-encryption-tool)**
+**[[https://vercel.com/hking0o1s-projects/v0-secure-encryption-tool](https://v0-secure-encryption-tool.vercel.app/)]**
 
