@@ -1,5 +1,4 @@
 import type React from "react"
-import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -8,11 +7,6 @@ import Footer from "@/components/footer"
 
 const inter = Inter({ subsets: ["latin"] })
 
-export const metadata: Metadata = {
-  title: "SecureVault - Encryption & Decryption Tool",
-  description: "A secure web-based encryption and decryption tool with military-grade security",
-    generator: 'v0.dev'
-}
 
 export default function RootLayout({
   children,
