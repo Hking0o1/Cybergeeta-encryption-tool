@@ -11,12 +11,12 @@ import { gsap } from "gsap"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, Unlock } from "lucide-react"
-
+import { useGSAP } from '@gsap/react';
 export default function EncryptPage() {
   const headerRef = useRef<HTMLDivElement>(null)
   const tabsRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
+  useGSAP(() => {
     // Animate header
     if (headerRef.current) {
       gsap.from(headerRef.current.children, {

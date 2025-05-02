@@ -9,6 +9,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Loader2, Lock, Unlock, Copy, Check, Eye, EyeOff } from "lucide-react"
 import PasswordStrength from "@/components/password-strength"
 import { gsap } from "gsap"
+import { useGSAP } from "@gsap/react"
 
 export default function SymmetricEncryption() {
   const [text, setText] = useState("")
@@ -23,7 +24,7 @@ export default function SymmetricEncryption() {
   const formRef = useRef<HTMLDivElement>(null)
   const resultRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
+  useGSAP(() => {
     // Animate form elements on mount
     if (formRef.current) {
       gsap.from(formRef.current.children, {
@@ -36,7 +37,7 @@ export default function SymmetricEncryption() {
     }
   }, [])
 
-  useEffect(() => {
+  useGSAP(() => {
     // Animate result when it appears
     if (resultRef.current && result) {
       gsap.from(resultRef.current, {

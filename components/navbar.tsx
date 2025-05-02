@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import ThemeToggle from "@/components/theme-toggle"
 import { Shield, Menu, X, Lock, Unlock } from "lucide-react"
 import { cn } from "@/lib/utils"
+import Image from "next/Image"
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -45,10 +46,10 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="p-1.5 rounded-md bg-primary text-primary-foreground">
-              <Shield className="h-5 w-5" />
+            <div className=" rounded-full bg-primary text-primary-foreground">
+              <Image src="cybergita.png" className="rounded-full" alt="Cybergeeta logo" width={32} height={32} />
             </div>
-            <span className="font-bold text-lg">SecureVault</span>
+            <span className="font-semibold text-lg">Cyber Gita</span>
           </Link>
 
           {/* Desktop Navigation */}

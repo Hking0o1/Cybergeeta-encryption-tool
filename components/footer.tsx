@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Shield, Github, Twitter, Linkedin, Mail } from "lucide-react"
+import Image from "next/Image"
 
 export default function Footer() {
   return (
@@ -9,10 +10,10 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="p-1.5 rounded-md bg-primary text-primary-foreground">
-                <Shield className="h-5 w-5" />
+              <div className=" rounded-full bg-primary text-primary-foreground">
+                <Image src="cybergita.png" className="rounded-full" alt="Cybergeeta logo" width={32} height={32} />
               </div>
-              <span className="font-bold text-lg">SecureVault</span>
+              <span className="font-semibold text-lg">Cyber Gita</span>
             </Link>
             <p className="text-sm text-muted-foreground mb-4">
               Enterprise-grade encryption and decryption for your sensitive data, built with modern security standards.

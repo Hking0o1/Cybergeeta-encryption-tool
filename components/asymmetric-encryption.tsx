@@ -8,6 +8,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Loader2, Copy, Check, KeyRound } from "lucide-react"
 import { gsap } from "gsap"
+import { useGSAP } from "@gsap/react"
 
 export default function AsymmetricEncryption() {
   const [keyPair, setKeyPair] = useState<{
@@ -33,7 +34,7 @@ export default function AsymmetricEncryption() {
   const keyButtonRef = useRef<HTMLButtonElement>(null)
   const keysContainerRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
+  useGSAP(() => {
     // Animate key generation button on mount
     if (keyButtonRef.current) {
       gsap.from(keyButtonRef.current, {
@@ -45,7 +46,7 @@ export default function AsymmetricEncryption() {
     }
   }, [])
 
-  useEffect(() => {
+  useGSAP(() => {
     // Animate keys container when keys are generated
     if (keysContainerRef.current && keyPair.publicKeyString) {
       gsap.from(keysContainerRef.current, {

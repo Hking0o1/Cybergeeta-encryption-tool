@@ -7,7 +7,7 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Shield, Lock, Unlock, FileText, ArrowRight, CheckCircle, Database, Key } from "lucide-react"
 import Link from "next/link"
-
+import { useGSAP } from '@gsap/react';
 // Register ScrollTrigger plugin
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger)
@@ -20,7 +20,7 @@ export default function LandingPage() {
   const ctaRef = useRef<HTMLDivElement>(null)
   const heroImageRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
+  useGSAP(() => {
     // Hero section animation
     if (heroRef.current) {
       const heroElements = heroRef.current.children
@@ -190,7 +190,7 @@ export default function LandingPage() {
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">Advanced Security Features</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8" ref={featuresRef}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8" >
             <Card className="border-t-4 border-t-primary overflow-hidden group hover:shadow-lg transition-all duration-300">
               <CardContent className="pt-6 p-6">
                 <div className="mb-4 p-3 rounded-full bg-primary/10 w-fit group-hover:bg-primary/20 transition-colors duration-300">

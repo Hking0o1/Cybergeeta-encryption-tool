@@ -14,12 +14,12 @@ import { gsap } from "gsap"
 import Link from "next/link"
 import { ArrowLeft, Lock, Unlock, Eye, EyeOff, Loader2, FileText, KeyRound } from "lucide-react"
 import PasswordStrength from "@/components/password-strength"
-
+import { useGSAP } from '@gsap/react';
 export default function DecryptPage() {
   const headerRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
+  useGSAP(() => {
     // Animate header
     if (headerRef.current) {
       gsap.from(headerRef.current.children, {
@@ -128,7 +128,7 @@ function TextDecryption() {
   const formRef = useRef<HTMLDivElement>(null)
   const resultRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
+  useGSAP(() => {
     // Animate form elements on mount
     if (formRef.current) {
       gsap.from(formRef.current.children, {
@@ -141,7 +141,7 @@ function TextDecryption() {
     }
   }, [])
 
-  useEffect(() => {
+  useGSAP(() => {
     // Animate result when it appears
     if (resultRef.current && decryptedText) {
       gsap.from(resultRef.current, {
@@ -306,7 +306,7 @@ function FileDecryption() {
   const dropZoneRef = useRef<HTMLDivElement>(null)
   const progressRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
+  useGSAP(() => {
     // Animate progress bar
     if (progressRef.current) {
       gsap.to(progressRef.current, {
@@ -318,7 +318,11 @@ function FileDecryption() {
   }, [progress])
 
   useEffect(() => {
-    const dropZone = dropZoneRef.current
+      if (progressRef.current) {
+        progressRef.current.style.setProperty('--progress-width', `${progress}%`);
+      }
+  
+      const dropZone = dropZoneRef.current
 
     if (!dropZone) return
 
@@ -554,7 +558,7 @@ function FileDecryption() {
       {(isDecrypting || progress > 0) && (
         <div className="space-y-2">
           <div className="flex justify-between text-sm">
-            <span>Progress</span>
+            <div ref={progressRef} className={`h-full bg-primary transition-all progress-bar`} />
             <span>{progress}%</span>
           </div>
           <div className="h-2 w-full bg-secondary rounded-full overflow-hidden">
@@ -582,7 +586,7 @@ function AsymmetricDecryption() {
   const formRef = useRef<HTMLDivElement>(null)
   const resultRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
+  useGSAP(() => {
     // Animate form elements on mount
     if (formRef.current) {
       gsap.from(formRef.current.children, {
@@ -595,7 +599,7 @@ function AsymmetricDecryption() {
     }
   }, [])
 
-  useEffect(() => {
+  useGSAP(() => {
     // Animate result when it appears
     if (resultRef.current && decryptedText) {
       gsap.from(resultRef.current, {
