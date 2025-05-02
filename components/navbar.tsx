@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import ThemeToggle from "@/components/theme-toggle"
 import { Shield, Menu, X, Lock, Unlock } from "lucide-react"
 import { cn } from "@/lib/utils"
-import Image from "next/Image"
+import Image from 'next/image';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
