@@ -76,6 +76,7 @@ export default function AsymmetricEncryption() {
       const keyPair = await window.crypto.subtle.generateKey(
         {
           name: "RSA-OAEP",
+          salt,
           modulusLength: 2048,
           publicExponent: new Uint8Array([1, 0, 1]),
           hash: "SHA-256",

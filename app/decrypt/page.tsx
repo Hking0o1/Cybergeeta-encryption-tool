@@ -124,7 +124,6 @@ function TextDecryption() {
   const [isDecrypting, setIsDecrypting] = useState(false)
   const [error, setError] = useState("")
   const [showPassword, setShowPassword] = useState(false)
-
   const formRef = useRef<HTMLDivElement>(null)
   const resultRef = useRef<HTMLDivElement>(null)
 
@@ -154,26 +153,30 @@ function TextDecryption() {
   }, [decryptedText])
 
   async function deriveKey(password: string, salt: Uint8Array) {
-    const encoder = new TextEncoder()
-    const passwordBuffer = encoder.encode(password)
+    const encoder = new TextEncoder();
+    const passwordBuffer = encoder.encode(password);
 
     // Import the password as a key
     const passwordKey = await window.crypto.subtle.importKey("raw", passwordBuffer, { name: "PBKDF2" }, false, [
       "deriveKey",
-    ])
+    ]);
+
+    // Ensure the salt is a valid Uint8Array with an ArrayBuffer
+    const validSalt = new Uint8Array(salt.buffer);
 
     // Derive a key using PBKDF2
     return window.crypto.subtle.deriveKey(
       {
         name: "PBKDF2",
+        salt: validSalt,
         iterations: 100000,
         hash: "SHA-256",
       },
       passwordKey,
       { name: "AES-GCM", length: 256 },
       false,
-      ["encrypt", "decrypt"],
-    )
+      ["encrypt", "decrypt"]
+    );
   }
 
   async function decrypt() {
@@ -193,9 +196,9 @@ function TextDecryption() {
       const encryptedBytes = Uint8Array.from(atob(encryptedText), (c) => c.charCodeAt(0))
 
       // Extract salt, iv, and encrypted data
-      const salt = encryptedBytes.slice(0, 16)
-      const iv = encryptedBytes.slice(16, 28)
-      const encryptedData = encryptedBytes.slice(28)
+      const salt = new Uint8Array(encryptedBytes.slice(0, 16))
+      const iv = new Uint8Array(encryptedBytes.slice(16, 28))
+      const encryptedData = new Uint8Array(encryptedBytes.slice(28))
 
       // Derive key from password
       const key = await deriveKey(password, salt)
@@ -318,7 +321,7 @@ function FileDecryption() {
 
   useEffect(() => {
       if (progressRef.current) {
-        progressRef.current.style.width = `${progress}%`;
+        progressRef.current.style.setProperty('--progress-width', `${progress}%`);
       }
   
       const dropZone = dropZoneRef.current
@@ -376,10 +379,14 @@ function FileDecryption() {
       "deriveKey",
     ])
 
+    // Ensure the salt is a valid Uint8Array with an ArrayBuffer
+    const validSalt = new Uint8Array(salt.buffer);
+
     // Derive a key using PBKDF2
     return window.crypto.subtle.deriveKey(
       {
         name: "PBKDF2",
+        salt: validSalt,
         iterations: 100000,
         hash: "SHA-256",
       },
@@ -423,9 +430,9 @@ function FileDecryption() {
       const encryptedBytes = new Uint8Array(encryptedData)
 
       // Extract salt, iv, and encrypted data
-      const salt = encryptedBytes.slice(0, 16)
-      const iv = encryptedBytes.slice(16, 28)
-      const data = encryptedBytes.slice(28)
+      const salt = new Uint8Array(encryptedBytes.slice(0, 16))
+      const iv = new Uint8Array(encryptedBytes.slice(16, 28))
+      const data = new Uint8Array(encryptedBytes.slice(28))
 
       // Derive key from password
       const key = await deriveKey(password, salt)
@@ -560,7 +567,7 @@ function FileDecryption() {
             <span>{progress}%</span>
           </div>
           <div className="h-2 w-full bg-secondary rounded-full overflow-hidden">
-            <div ref={progressRef} className={`h-full bg-primary transition-all progress-bar`} />
+            <div ref={progressRef} className="h-full bg-primary transition-all" style={{ width: `${progress}%` }} />
           </div>
         </div>
       )}
