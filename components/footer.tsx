@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Shield, Github, Twitter, Linkedin, Mail } from "lucide-react"
+import {  Github, X, Linkedin, Mail } from "lucide-react"
 import Image from 'next/image';
 
 export default function Footer() {
@@ -29,13 +29,13 @@ export default function Footer() {
                 <span className="sr-only">GitHub</span>
               </Link>
               <Link
-                href="https://twitter.com"
+                href="https://X.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
+                <X className="h-5 w-5" />
+                <span className="sr-only">X</span>
               </Link>
               <Link
                 href="https://linkedin.com"

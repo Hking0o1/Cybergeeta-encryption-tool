@@ -5,7 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import ThemeToggle from "@/components/theme-toggle"
-import { Shield, Menu, X, Lock, Unlock } from "lucide-react"
+import { Menu, X, Lock, Unlock } from "lucide-react"
 import { cn } from "@/lib/utils"
 import Image from 'next/image';
 

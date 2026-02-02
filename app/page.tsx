@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { gsap } from "gsap"
@@ -8,7 +8,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Shield, Lock, Unlock, FileText, ArrowRight, CheckCircle, Database, Key } from "lucide-react"
 import Link from "next/link"
 import { useGSAP } from '@gsap/react';
-// Register ScrollTrigger plugin
+
+
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger)
 }

@@ -166,7 +166,6 @@ function TextDecryption() {
     return window.crypto.subtle.deriveKey(
       {
         name: "PBKDF2",
-        salt,
         iterations: 100000,
         hash: "SHA-256",
       },
@@ -319,7 +318,7 @@ function FileDecryption() {
 
   useEffect(() => {
       if (progressRef.current) {
-        progressRef.current.style.setProperty('--progress-width', `${progress}%`);
+        progressRef.current.style.width = `${progress}%`;
       }
   
       const dropZone = dropZoneRef.current
@@ -381,7 +380,6 @@ function FileDecryption() {
     return window.crypto.subtle.deriveKey(
       {
         name: "PBKDF2",
-        salt,
         iterations: 100000,
         hash: "SHA-256",
       },
@@ -562,7 +560,7 @@ function FileDecryption() {
             <span>{progress}%</span>
           </div>
           <div className="h-2 w-full bg-secondary rounded-full overflow-hidden">
-            <div ref={progressRef} className="h-full bg-primary transition-all" style={{ width: `${progress}%` }} />
+            <div ref={progressRef} className={`h-full bg-primary transition-all progress-bar`} />
           </div>
         </div>
       )}

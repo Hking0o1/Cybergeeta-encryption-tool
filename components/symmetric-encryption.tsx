@@ -63,7 +63,6 @@ export default function SymmetricEncryption() {
     return window.crypto.subtle.deriveKey(
       {
         name: "PBKDF2",
-        salt,
         iterations: 100000,
         hash: "SHA-256",
       },
